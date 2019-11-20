@@ -1,17 +1,18 @@
 <template>
   <div class="home-wrapper">
     <div class="header-wrapper">
-      <Header></Header>
+      <Header/>
     </div>
     <div class="swiper-wrapper">
-      <swiper-list></swiper-list>
+      <swiper-list/>
     </div>
     <div class="category-wrapper">
-      <category></category>  
+      <category/>
     </div>
     <div class="recommend-wrapper">
-      <recommend></recommend>
+      <recommend/>
     </div>
+    <footerBar/>
   </div>
 </template>
 
@@ -20,10 +21,11 @@ import Header from '@/components/header/Header'
 import SwiperList from '@/components/swiperList/SwiperList'
 import Category from '@/components/category/Category'
 import Recommend from '@/components/recommend/Recommend'
+import footerBar from './footer/footerBar'
 export default {
   name: 'Home',
-  components: {Header, SwiperList, Category, Recommend},
-  data () {
+  components: { Header, SwiperList, Category, Recommend, footerBar },
+  data() {
     return {
       msg: 'Welcome to Your Vue.js App'
     }

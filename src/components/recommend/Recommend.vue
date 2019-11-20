@@ -1,54 +1,62 @@
 <template>
   <div class="recommend-content">
     <div>推荐小宠物</div>
-    <div class="recommend-item" v-for="(item, index) in recommendList" :key="index"
-      @click="toDesign">
-    <lazy-component>
-      <img :src="item.url" alt="">
-    </lazy-component>
-      <div class="design">
-        <span class="name">{{item.name}}</span>
-        <span class="price">￥{{item.price}}</span>
-      </div>
-    </div>
+    <van-list
+      v-model="loading"
+      :finished="finished"
+      :error.sync="error"
+      finished-text="没有更多了"
+      error-text="请求失败，点击重新加载"
+      @load="onLoad"
+    >
+      <van-cell
+        v-for="item in list"
+        :key="item"
+        :title="item"
+      />
+    </van-list>
   </div>
 </template>
 
 <script>
 // import ToHref from '@/assets/url/toHref.js'
+import Vue from 'vue'
+import { List } from 'vant'
+Vue.use(List)
 export default {
   name: 'Recommend',
-  data () {
+  data() {
     return {
       msg: 'Welcome to Your Vue.js App',
       value: '',
+      list: [],
       recommendList: [{
         id: 0,
-        name: '纯种茶杯玩具泰迪', 
+        name: '纯种茶杯玩具泰迪',
         price: '2000',
-        url:  require('../recommend/img/g4.jpg')
-      },{
+        url: require('../recommend/img/g4.jpg')
+      }, {
         id: 1,
-        name: '花花犬舍-法国卷毛比熊犬高品质幼犬', 
+        name: '花花犬舍-法国卷毛比熊犬高品质幼犬',
         price: '3500',
-        url:  require('../recommend/img/g5.jpg')
-      },{
+        url: require('../recommend/img/g5.jpg')
+      }, {
         id: 2,
-        name: '纯种波斯猫橘眼加菲猫活体幼猫异国短毛猫长毛猫加菲猫活体', 
+        name: '纯种波斯猫橘眼加菲猫活体幼猫异国短毛猫长毛猫加菲猫活体',
         price: '3000',
-        url:  require('../recommend/img/m9.jpg')
+        url: require('../recommend/img/m9.jpg')
       }]
     }
   },
   methods: {
-    toDesign () {
-      // alert(ToHref);
+    onLoad() {
+
     }
   }
 }
 </script>
 
-  <style lang="less" scoped="" type="text/css"> 
+  <style lang="less" scoped="" type="text/css">
     .recommend-content{
       text-align: left;
       // font-weight: bold;
