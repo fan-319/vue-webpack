@@ -9,10 +9,16 @@
       error-text="请求失败，点击重新加载"
       @load="onLoad"
     >
-      <van-cell
-        v-for="item in list"
-        :key="item"
-        :title="item"
+      <van-card
+        v-for="item in productList"
+        :key="item.productId"
+        :num="item.productNum"
+        tag="标签"
+        price="2.00"
+        desc="描述信息"
+        :title="item.commonName"
+        thumb="https://img.yzcdn.cn/vant/t-thirt.jpg"
+        origin-price="10.00"
       />
     </van-list>
   </div>
@@ -21,15 +27,18 @@
 <script>
 // import ToHref from '@/assets/url/toHref.js'
 import Vue from 'vue'
-import { List } from 'vant'
-Vue.use(List)
+import { List, Card } from 'vant'
+Vue.use(List).use(Card)
 export default {
   name: 'Recommend',
   data() {
     return {
       msg: 'Welcome to Your Vue.js App',
       value: '',
-      list: [],
+      productList: [],
+      loading: false,
+      finished: false,
+      error: false,
       recommendList: [{
         id: 0,
         name: '纯种茶杯玩具泰迪',
@@ -48,9 +57,22 @@ export default {
       }]
     }
   },
+  created() {
+    this.$http.get('getProductList').then((res) => {
+      if (res.code === 0) {
+        this.loading = false
+        this.finished = true
+        let list = this.productList
+        list = Array.prototype.concat(list, res.result.list)
+        this.productList = list
+      } else {
+        this.error = true
+      }
+    })
+  },
   methods: {
     onLoad() {
-
+      // 滚动触底触发
     }
   }
 }
