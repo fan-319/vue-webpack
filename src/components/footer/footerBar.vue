@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-tabbar v-model="active" fixed="true">
+    <van-tabbar v-model="active" :fixed="true">
       <van-tabbar-item icon="home-o">首页</van-tabbar-item>
       <van-tabbar-item icon="fire-o">热门</van-tabbar-item>
       <van-tabbar-item icon="shopping-cart-o">购物车</van-tabbar-item>
