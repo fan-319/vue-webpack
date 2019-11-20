@@ -12,7 +12,7 @@
     <div class="recommend-wrapper">
       <recommend/>
     </div>
-    <footerBar/>
+    <!-- <footerBar/> -->
   </div>
 </template>
 
@@ -21,10 +21,10 @@ import Header from '@/components/header/Header'
 import SwiperList from '@/components/swiperList/SwiperList'
 import Category from '@/components/category/Category'
 import Recommend from '@/components/recommend/Recommend'
-import footerBar from './footer/footerBar'
+// import footerBar from './footer/footerBar'
 export default {
   name: 'Home',
-  components: { Header, SwiperList, Category, Recommend, footerBar },
+  components: { Header, SwiperList, Category, Recommend },
   data() {
     return {
       msg: 'Welcome to Your Vue.js App'
@@ -42,6 +42,7 @@ export default {
     height: 100%;
     overflow: hidden;
     max-width: 7.5rem;
+    max-width: 750px;
     margin: 0 auto;
     font-size: .14rem;
     .swiper-wrapper{

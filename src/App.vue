@@ -2,12 +2,15 @@
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
     <router-view/>
+    <footerBar/>
   </div>
 </template>
 
 <script>
+import footerBar from '@/components/footer/footerBar'
 export default {
-  name: 'App'
+  name: 'App',
+  components: { footerBar },
 }
 </script>
 

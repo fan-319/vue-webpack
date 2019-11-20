@@ -17,11 +17,11 @@ export default {
       images: [
         {
           id: '1001',
-          url: require('../swiperList/img/g1.jpg')
+          url: require('../swiperList/img/y1.jpg')
         },
         {
           id: '1002',
-          url: require('../swiperList/img/m1.jpg')
+          url: require('../swiperList/img/y4.jpg')
         }
       ]
     }
@@ -41,8 +41,9 @@ export default {
       height: auto;
       .van-swipe, img{
         width: 100%;
-        height: 2rem;
+        height: 100%;
         background-size: 100% 100%;
+        max-height: 3rem;
       }
     }
   </style>

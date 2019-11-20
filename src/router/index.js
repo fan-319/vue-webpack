@@ -14,6 +14,8 @@ Vue.use(Lazyload, {
 Vue.use(Swipe).use(SwipeItem);
 
 export default new Router({
+  // 去除地址栏/#/
+  mode: 'history',
   routes: [
     {
       path: '/',

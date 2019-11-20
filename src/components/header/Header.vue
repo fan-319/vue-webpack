@@ -30,13 +30,15 @@ export default {
   <style lang="less" scoped="" type="text/css"> 
     .header-content{
       display: flex;
+      padding-top: 3%;
       .search-keyword{
         flex: 1;
       }
       img{
-          width: 0.3rem;
-          height: 0.3rem;
-          margin: .1rem .12rem 0 0;
+          width: auto;
+          height: 100%;
+          display: inline-block;
+          margin-right: .12rem;
       }
     }
   </style>
