@@ -80,17 +80,17 @@ export default {
     }
   },
   created() {
-    this.$http.get('getProductList').then((res) => {
-      if (res.code === 0) {
-        this.loading = false
-        this.finished = true
-        let list = this.productList
-        list = Array.prototype.concat(list, res.result.list)
-        this.productList = list
-      } else {
-        this.error = true
-      }
-    })
+    // this.$http.get('getProductList').then((res) => {
+    //   if (res.code === 0) {
+    //     this.loading = false
+    //     this.finished = true
+    //     let list = this.productList
+    //     list = Array.prototype.concat(list, res.result.list)
+    //     this.productList = list
+    //   } else {
+    //     this.error = true
+    //   }
+    // })
   },
   methods: {
     onLoad() {
