@@ -12,6 +12,7 @@
 <script>
 import Vue from 'vue'
 import { Tabbar, TabbarItem } from 'vant'
+import util from '@/utils/util'
 Vue.use(Tabbar).use(TabbarItem)
 export default {
   name: 'FooterBar',
@@ -20,9 +21,15 @@ export default {
       active: 'home'
     }
   },
+  created () {
+    this.tabBarActive(util.getUrl(this.$route.path), 1)
+  },
   methods: {
-    tabBarActive (type) {
-      console.log('type', type);
+    tabBarActive (type, val) {
+      this.active = type
+      if (val == 1) {
+        return
+      }
       switch (type) {
         case 'home':
           this.$router.push({path:'/'})
